@@ -1,0 +1,72 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FixedAssets.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="msg_SavingInProgress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">جاري الحفظ ...</Value>
+    </Setting>
+    <Setting Name="msg_SaveSuccess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">تم الحفظ ...</Value>
+    </Setting>
+    <Setting Name="msg_SavingFailed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">لم يتم الحفظ ...</Value>
+    </Setting>
+    <Setting Name="EtsStoreConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.211.1;Initial Catalog=FixedAssets;Persist Security Info=True;User ID=sa;Password=123456&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.211.1;Initial Catalog=FixedAssets;Persist Security Info=True;User ID=sa;Password=123456</Value>
+    </Setting>
+    <Setting Name="L4N" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;configuration&gt;
+    &lt;configSections&gt;
+      &lt;section name="log4net"
+          type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" /&gt;
+    &lt;/configSections&gt;
+    &lt;log4net&gt;
+
+      &lt;appender name="RemotingAppender" type="log4net.Appender.RemotingAppender" &gt;
+        &lt;sink value="tcp://localhost:1983/LoggingSink" /&gt;
+        &lt;lossy value="false" /&gt;
+        &lt;bufferSize value="1" /&gt;
+        &lt;onlyFixPartialEventData value="true" /&gt;
+      &lt;/appender&gt;
+
+      &lt;appender name="LogFileAppender" type="log4net.Appender.FileAppender"&gt;
+        &lt;param name="File" value="L4N\L4N.txt" /&gt;
+        &lt;param name="AppendToFile" value="true" /&gt;
+        &lt;layout type="log4net.Layout.PatternLayout"&gt;
+          &lt;param name="Header" value="[Header]\r\n" /&gt;
+          &lt;param name="Footer" value="[Footer]\r\n" /&gt;
+          &lt;param name="ConversionPattern" value="%d [%t] %-5p %c %m%n" /&gt;
+        &lt;/layout&gt;
+      &lt;/appender&gt;
+
+      &lt;appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender" &gt;
+        &lt;layout type="log4net.Layout.PatternLayout"&gt;
+          &lt;param name="Header" value="[Header]\r\n" /&gt;
+          &lt;param name="Footer" value="[Footer]\r\n" /&gt;
+          &lt;param name="ConversionPattern" value="%d [%t] %-5p %c %m%n" /&gt;
+        &lt;/layout&gt;
+      &lt;/appender&gt;
+
+      &lt;appender name="UdpAppender" type="log4net.Appender.UdpAppender"&gt;
+        &lt;remoteAddress value="localhost" /&gt;
+        &lt;remotePort value="7071" /&gt;
+        &lt;layout type="log4net.Layout.XmlLayoutSchemaLog4j" /&gt;
+      &lt;/appender&gt;
+
+      &lt;root&gt;
+        &lt;level value="Debug" /&gt;
+        &lt;appender-ref ref="UdpAppender" /&gt;
+        &lt;appender-ref ref="RemotingAppender" /&gt;
+        &lt;appender-ref ref="LogFileAppender" /&gt;
+      &lt;/root&gt;
+    &lt;/log4net&gt;
+&lt;/configuration&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

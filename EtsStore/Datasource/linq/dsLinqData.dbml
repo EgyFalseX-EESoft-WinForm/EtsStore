@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FixedAssets" Class="dsLinqDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.211.1;Initial Catalog=FixedAssets;Persist Security Info=True;User ID=sa" SettingsObjectName="FixedAssets.Properties.Settings" SettingsPropertyName="EtsStoreConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ModereaId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Rule]" Member="Rules">
+    <Type Name="Rule">
+      <Column Name="RuleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RuleName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RuleDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblEmp" Member="TblEmps">
+    <Type Name="TblEmp">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpJobId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="EmpDepertment" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdJob" Member="CdJobs">
+    <Type Name="CdJob">
+      <Column Name="JobId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JobName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdDepertment" Member="CdDepertments">
+    <Type Name="CdDepertment">
+      <Column Name="DepertmentId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Depertment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CdDepertment_TBLBuyorder" Member="TBLBuyorders" ThisKey="DepertmentId" OtherKey="DepertmentId" Type="TBLBuyorder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdAssetplace" Member="CdAssetplaces">
+    <Type Name="CdAssetplace">
+      <Column Name="AssetplaceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Assetplace" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdAssetState" Member="CdAssetStates">
+    <Type Name="CdAssetState">
+      <Column Name="AssetStateId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AssetState" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdAssetPropertiy" Member="CdAssetPropertiys">
+    <Type Name="CdAssetPropertiy">
+      <Column Name="AssetPropertiyId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AssetPropertiy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetPropertiyDes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CDComponents" Member="CDComponents">
+    <Type Name="CDComponent">
+      <Column Name="ComponentId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Component" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ComponentDes" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdAssetsCategory" Member="CdAssetsCategories">
+    <Type Name="CdAssetsCategory">
+      <Column Name="AssetsCategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AssetsCategoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="parentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CDUnit" Member="CDUnits">
+    <Type Name="CDUnit">
+      <Column Name="UnitId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CDUnit_TblAsnaf" Member="TblAsnafs" ThisKey="UnitId" OtherKey="UnitId" Type="TblAsnaf" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblAsnaf" Member="TblAsnafs">
+    <Type Name="TblAsnaf">
+      <Column Name="SanfID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SanfCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SanfName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sanfbarcode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ReOrder" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="UnitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanfdes" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="CDUnit_TblAsnaf" Member="CDUnit" ThisKey="UnitId" OtherKey="UnitId" Type="CDUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CDBuyorderreson" Member="CDBuyorderresons">
+    <Type Name="CDBuyorderreson">
+      <Column Name="BuyorderresonId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Buyorderreson" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="CDBuyorderreson_TBLBuyorder" Member="TBLBuyorders" ThisKey="BuyorderresonId" OtherKey="BuyorderresonId" Type="TBLBuyorder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CDAsnaftype" Member="CDAsnaftypes">
+    <Type Name="CDAsnaftype">
+      <Column Name="AsnaftypeId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Asnaftype" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLSuppliers" Member="TBLSuppliers">
+    <Type Name="TBLSupplier">
+      <Column Name="SupplierId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Suppliersegl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Suppliernashat" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Supplierdrebea" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Suppliermobile" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Suppliertel" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Supplierfax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Supplieraddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Suppliermail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="TBLSupplier_TBLTwreedOrder" Member="TBLTwreedOrders" ThisKey="SupplierId" OtherKey="SupplierId" Type="TBLTwreedOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLBuyorder" Member="TBLBuyorders">
+    <Type Name="TBLBuyorder">
+      <Column Name="BuyorderId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Buyorderdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DepertmentId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="BuyorderresonId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="moznadate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="closeorder" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="dateclose" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CDBuyorderreson_TBLBuyorder" Member="CDBuyorderreson" ThisKey="BuyorderresonId" OtherKey="BuyorderresonId" Type="CDBuyorderreson" IsForeignKey="true" />
+      <Association Name="CdDepertment_TBLBuyorder" Member="CdDepertment" ThisKey="DepertmentId" OtherKey="DepertmentId" Type="CdDepertment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLTwreedOrder" Member="TBLTwreedOrders">
+    <Type Name="TBLTwreedOrder">
+      <Column Name="TwreedOrderId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TwreedOrderdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="twreedplace" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="twreddate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Supplierofferno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TBLTwreedOrder_TBLCheck" Member="TBLChecks" ThisKey="TwreedOrderId" OtherKey="TwreedOrderId" Type="TBLCheck" />
+      <Association Name="TBLSupplier_TBLTwreedOrder" Member="TBLSupplier" ThisKey="SupplierId" OtherKey="SupplierId" Type="TBLSupplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CdJoblagna" Member="CdJoblagnas">
+    <Type Name="CdJoblagna">
+      <Column Name="JobId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JobName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CDStore" Member="CDStores">
+    <Type Name="CDStore">
+      <Column Name="StoreId" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Storename" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLCheck" Member="TBLChecks">
+    <Type Name="TBLCheck">
+      <Column Name="ChecklagnaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BuyorderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Checklagnadate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Decisionno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TwreedOrderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserIn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TBLTwreedOrder_TBLCheck" Member="TBLTwreedOrder" ThisKey="TwreedOrderId" OtherKey="TwreedOrderId" Type="TBLTwreedOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
