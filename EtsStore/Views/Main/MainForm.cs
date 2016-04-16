@@ -109,10 +109,6 @@ namespace FixedAssets.Views.Main
                 e.Control = new UserSettingsUC();
             }
             //---------Code
-            else if (e.Document == docCodeCdAssetplace)
-            {
-                e.Control = new CdAssetplaceEditorUC(RuleElemet);
-            }
             else if (e.Document == docCodecdJob)
             {
                 e.Control = new CdJobEditorUC(RuleElemet);
@@ -120,18 +116,6 @@ namespace FixedAssets.Views.Main
             else if (e.Document == docCodeCdDepertment)
             {
                 e.Control = new CdDepertmentEditorUC(RuleElemet);
-            }
-            else if (e.Document == docCodeCdAssetPropertiy)
-            {
-                e.Control = new CdAssetPropertiyEditorUC(RuleElemet);
-            }
-            else if (e.Document == docCodeCdAssetState)
-            {
-                e.Control = new CdAssetStateEditorUC(RuleElemet);
-            }
-            else if (e.Document == docCodeCDComponents)
-            {
-                e.Control = new CDComponentsEditorUC(RuleElemet);
             }
             else if (e.Document == docCodeCDInsuranceCo)
             {
@@ -155,10 +139,6 @@ namespace FixedAssets.Views.Main
             }
 
             //---------Data
-            else if (e.Document == docDataCdAssetsCategory)
-            {
-                e.Control = new CdAssetsCategoryEditorUC(RuleElemet);
-            }
             else if (e.Document == docDataTblEmp)
             {
                 e.Control = new TblEmpEditorUC(RuleElemet);
@@ -208,10 +188,6 @@ namespace FixedAssets.Views.Main
             else if (e.Document == docRuleRuleDetails)
             {
                 e.Control = new RuleDetailsUC(RuleElemet);
-            }
-            else if (e.Document == docQryQry001)//Qry
-            {
-                e.Control = new Qry001UC();
             }
             else if (e.Document == docQryQry002)
             {
